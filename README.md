@@ -1,0 +1,2 @@
+# chamdict
+Chamorro Dictionary
