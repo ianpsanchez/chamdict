@@ -13,7 +13,7 @@ $(document).ready(function () {
             document.getElementById("searchReturnP").innerHTML = 'Enter a word.';
         } else {
             $.ajax({
-                url: "http://localhost:8080/all",
+                url: "https://chamorrodictionary.herokuapp.com/all",
                 method: "GET",
                 data: {grino: sWord}
               }).then(function(response) {
