@@ -6,7 +6,8 @@ $(document).ready(function () {
         event.preventDefault();
         console.log(" --> Whats up! <-- ");
 
-        let sWord = $('#searchWord_id').val();
+        let allLower = $('#searchWord_id').val();
+        let sWord = allLower.toLowerCase();
         console.log(sWord);
 
         if(!sWord){
