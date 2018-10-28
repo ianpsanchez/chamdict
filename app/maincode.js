@@ -10,33 +10,40 @@ $(document).ready(function () {
         let sWord = allLower.toLowerCase();
         console.log(sWord);
 
-        if(!sWord){
+        if (!sWord) {
             document.getElementById("searchReturnP").innerHTML = 'Enter a word.';
         } else {
             $.ajax({
                 url: "https://chamorrodictionary.herokuapp.com/all",
                 method: "GET",
-                data: {grino: sWord}
-              }).then(function(response) {
+                data: { grino: sWord }
+            }).then(function (response) {
                 console.log(response);
                 // console.log(response.Runtime);
-                if(response[0]){
+                if (response[0]) {
 
                     let chamWords = '';
 
-                    for(let i = 0; i < response.length; i++){
-                        chamWords += response[i].pele + '</br>';
+                    for (let i = 0; i < response.length; i++) {
+
+                        if (i = response.length - 1) {
+                            chamWords += response[i].pele;
+                        }
+                        else {
+                            chamWords += response[i].pele + ', ';
+                        }
+
                     }
-                    
+
                     document.getElementById("searchReturnP").innerHTML = "English: " + sWord + "</br>Chamorro: " + chamWords;
                 } else {
                     document.getElementById("searchReturnP").innerHTML = "No match found...";
                 }
-                
-              });
+
+            });
         }
 
-        
+
 
         // search(sWord, master);
         // console.log("Chamorro word for " + sWord + " is " + theDef);
@@ -72,7 +79,7 @@ function search(nameKey, myArray) {
 
     }
 
-    if(!found){
+    if (!found) {
         document.getElementById("searchReturnP").innerHTML = 'No match found...';
     }
 }
