@@ -26,7 +26,7 @@ $(document).ready(function () {
 
                     for (let i = 0; i < response.length; i++) {
 
-                        if (i = response.length - 1) {
+                        if (i === response.length - 1) {
                             chamWords += response[i].pele;
                         }
                         else {
