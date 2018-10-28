@@ -65,7 +65,7 @@ db.tiningo.find({grino : {$regex:".*"+req.query.grino+".*"}}, function(err, foun
       }
       // Otherwise, send the result of this query to the browser
       else {
-          console.log("--> FOUND: --> " + found);
+          console.log("--> FOUND: --> " + JSON.stringify(found));
         res.json(found);
       }
     });
