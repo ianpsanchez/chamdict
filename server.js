@@ -56,16 +56,16 @@ app.get("/", function (req, res) {
 // 2. At the "/all" path, display every entry in the animals collection
 app.get("/all", function(req, res) {
     // Query: In our database, go to the animals collection, then "find" everything
-    console.log(req.query.grino);
+    console.log("--> REQ-QUERY-GRINO: " + req.query.grino);
     // db.tiningo.find({}, function(err, found) {
-db.tiningo.find({grino : {$regex:"/"+req.query.grino+"/"}}, function(err, found) {
+db.tiningo.find({grino : {$regex:"/.*"+req.query.grino+"/.*"}}, function(err, found) {
       // Log any errors if the server encounters one
       if (err) {
         console.log("Error: " + err);
       }
       // Otherwise, send the result of this query to the browser
       else {
-          console.log(found);
+          console.log("--> FOUND: --> " + found);
         res.json(found);
       }
     });
