@@ -18,7 +18,7 @@ $(document).ready(function () {
                 method: "GET",
                 data: {grino: sWord}
               }).then(function(response) {
-                console.log(response[0]);
+                console.log(response);
                 // console.log(response.Runtime);
                 if(response[0]){
                     document.getElementById("searchReturnP").innerHTML = "English: " + sWord + "</br>Chamorro: " + response[0].pele;
