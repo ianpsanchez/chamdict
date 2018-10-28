@@ -58,7 +58,7 @@ app.get("/all", function(req, res) {
     // Query: In our database, go to the animals collection, then "find" everything
     console.log("--> REQ-QUERY-GRINO: " + req.query.grino);
     // db.tiningo.find({}, function(err, found) {
-db.tiningo.find({grino : {$regex:"/.*"+req.query.grino+"/.*"}}, function(err, found) {
+db.tiningo.find({grino : {$regex:"/"+req.query.grino+"/"}}, function(err, found) {
       // Log any errors if the server encounters one
       if (err) {
         console.log("Error: " + err);
