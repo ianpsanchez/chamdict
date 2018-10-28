@@ -21,7 +21,14 @@ $(document).ready(function () {
                 console.log(response);
                 // console.log(response.Runtime);
                 if(response[0]){
-                    document.getElementById("searchReturnP").innerHTML = "English: " + sWord + "</br>Chamorro: " + response[0].pele;
+
+                    let chamWords = '';
+
+                    for(let i = 0; i < response.length; i++){
+                        chamWords += response[i].pele + '</br>';
+                    }
+                    
+                    document.getElementById("searchReturnP").innerHTML = "English: " + sWord + "</br>Chamorro: " + chamWords;
                 } else {
                     document.getElementById("searchReturnP").innerHTML = "No match found...";
                 }
