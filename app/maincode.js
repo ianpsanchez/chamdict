@@ -13,6 +13,10 @@ $(document).ready(function () {
         if (!sWord) {
             document.getElementById("searchReturnP").innerHTML = 'Enter a word.';
         } else {
+            
+            //loading GIF
+            document.getElementById("searchReturnP").innerHTML = '<img src="./images/loading-balls-small.gif">';
+
             $.ajax({
                 url: "https://chamorrodictionary.herokuapp.com/all",
                 method: "GET",
