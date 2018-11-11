@@ -15,7 +15,8 @@ $(document).ready(function () {
         } else {
             
             //loading GIF
-            document.getElementById("searchReturnP").innerHTML = '<img src="./images/loading-balls-small.gif" alt="Searching..." height="75" width="100">';
+            document.getElementById("searchReturnP").innerHTML = 'SEARCHING NOW...';
+            //document.getElementById("searchReturnP").innerHTML = '<img src="./images/loading-balls-small.gif" alt="Searching..." height="75" width="100">';
 
             $.ajax({
                 url: "https://chamorrodictionary.herokuapp.com/all",
