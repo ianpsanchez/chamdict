@@ -19,7 +19,7 @@ $(document).ready(function () {
             //document.getElementById("searchReturnP").innerHTML = '<img src="./images/loading-balls-small.gif" alt="Searching..." height="75" width="100">';
 
             $.ajax({
-                url: "https://chamorrodictionary.herokuapp.com/all",
+                url: "http://chamorrodictionary.herokuapp.com/all",
                 method: "GET",
                 data: { grino: sWord }
             }).then(function (response) {
