@@ -42,8 +42,10 @@ $(document).ready(function () {
 
                     document.getElementById("searchReturnP").innerHTML = "English: " + sWord + "</br>Chamorro: " + chamWords;
 
-                    var audio = new Audio('./sounds/johnny_cash_one.mp3');
-                    audio.play();
+                    ////// Play an mp3 file //////
+                    // var audio = new Audio('./sounds/johnny_cash_one.mp3');
+                    // audio.play();
+
                 } else {
                     document.getElementById("searchReturnP").innerHTML = "No match found...";
                 }
