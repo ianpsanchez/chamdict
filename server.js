@@ -50,7 +50,7 @@ db.on("error", function(error) {
 
 app.get("/", function (req, res) {
     // res.send("the Root");
-    res.redirect('https://' + res.sendFile(path.join(__dirname, "./app/index.html")));
+    res.redirect('https://www.marianas.io/' + res.sendFile(path.join(__dirname, "./app/index.html")));
 
 });
 
