@@ -50,7 +50,7 @@ db.on("error", function(error) {
 
 app.get("/", function (req, res) {
     // res.send("the Root");
-    res.sendFile(path.join(__dirname, "./app/index.html"));
+    res.sendFile('https://' + path.join(__dirname, "./app/index.html"));
 });
 
 // 2. At the "/all" path, display every entry in the animals collection
