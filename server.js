@@ -35,7 +35,7 @@ var collections = ["tiningo"];
 var db = mongojs(databaseUrl, collections);
 
 // This makes sure that any errors are logged if mongodb runs into an issue
-db.on("error", function(error) {
+db.on("error", function (error) {
   console.log("Database Error:", error);
 });
 
@@ -49,31 +49,33 @@ db.on("error", function(error) {
 // require("./app/routing/htmlRoutes")(app);
 
 app.get("/", function (req, res) {
-    // res.send("the Root");
-    res.sendFile(path.join(__dirname, "./app/index.html"));
+  // res.send("the Root");
+  res.sendFile(path.join(__dirname, "./app/index.html"));
 
 });
 
 // 2. At the "/all" path, display every entry in the animals collection
-app.get("/all", function(req, res) {
-    // Query: In our database, go to the animals collection, then "find" everything
-    console.log("--> REQ-QUERY-GRINO: " + req.query.grino);
-    // db.tiningo.find({}, function(err, found) {
-db.tiningo.find({grino : {$regex:"^"+req.query.grino+"$", $options : "i"}}, function(err, found) {
-      // Log any errors if the server encounters one
-      if (err) {
-        console.log("Error: " + err);
-      }
-      // Otherwise, send the result of this query to the browser
-      else {
-          console.log("--> FOUND: --> " + JSON.stringify(found));
-        res.json(found);
-      }
-    });
-  
-    db.inwords.insert( { inword: req.query.grino } );
-
+app.get("/all", function (req, res) {
+  // Query: In our database, go to the animals collection, then "find" everything
+  console.log("--> REQ-QUERY-GRINO: " + req.query.grino);
+  // db.tiningo.find({}, function(err, found) {
+  db.tiningo.find({ grino: { $regex: "^" + req.query.grino + "$", $options: "i" } }, function (err, found) {
+    // Log any errors if the server encounters one
+    if (err) {
+      console.log("Error: " + err);
+    }
+    // Otherwise, send the result of this query to the browser
+    else {
+      console.log("--> FOUND: --> " + JSON.stringify(found));
+      res.json(found);
+    }
   });
+
+  if (!found) {
+    db.inwords.insert({ inword: req.query.grino });
+  }
+
+});
 
 // app.get("/survey", function (req, res) {
 //     res.send("survey form route");
@@ -92,5 +94,5 @@ db.tiningo.find({grino : {$regex:"^"+req.query.grino+"$", $options : "i"}}, func
 // =============================================================================
 
 app.listen(PORT, function () {
-    console.log("App listening on PORT: " + PORT);
+  console.log("App listening on PORT: " + PORT);
 });
