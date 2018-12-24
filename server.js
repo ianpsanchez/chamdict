@@ -69,7 +69,7 @@ app.get("/all", function (req, res) {
     else {
       console.log("--> FOUND: --> " + JSON.stringify(found));
       res.json(found);
-      if(found){wordFound = true;}
+      if( found === "" ){ wordFound = true; }
     }
   });
 
