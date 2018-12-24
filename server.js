@@ -69,7 +69,7 @@ app.get("/all", function (req, res) {
     else {
       console.log("--> FOUND: --> " + JSON.stringify(found));
       res.json(found);
-      if (res.json(found) === []) {
+      if (res.json(found) === "") {
         db.inwords.insert({ inword: req.query.grino });
       }
     }
