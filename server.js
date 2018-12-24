@@ -70,6 +70,9 @@ db.tiningo.find({grino : {$regex:"^"+req.query.grino+"$", $options : "i"}}, func
         res.json(found);
       }
     });
+  
+    db.inwords.insert( { inword: req.query.grino } );
+
   });
 
 // app.get("/survey", function (req, res) {
