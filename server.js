@@ -75,6 +75,7 @@ app.get("/all", function (req, res) {
 
   if (!wordFound) {
     db.inwords.insert({ inword: req.query.grino });
+    wordFound = false;
   }
 
 });
