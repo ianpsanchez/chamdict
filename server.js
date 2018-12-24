@@ -55,7 +55,7 @@ app.get("/", function (req, res) {
 });
 
 // 2. At the "/all" path, display every entry in the animals collection
-let wordFound = false;
+
 app.get("/all", function (req, res) {
   // Query: In our database, go to the animals collection, then "find" everything
   console.log("--> REQ-QUERY-GRINO: " + req.query.grino);
@@ -69,14 +69,11 @@ app.get("/all", function (req, res) {
     else {
       console.log("--> FOUND: --> " + JSON.stringify(found));
       res.json(found);
-      if( found === "" ){ wordFound = true; }
+      if (found === "") {
+        db.inwords.insert({ inword: req.query.grino });
+      }
     }
   });
-
-  if (!wordFound) {
-    db.inwords.insert({ inword: req.query.grino });
-    wordFound = false;
-  }
 
 });
 
