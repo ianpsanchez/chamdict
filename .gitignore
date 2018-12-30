@@ -1,1 +1,7 @@
 node_modules
+server.pass.key
+server.pass.1.key
+server.key
+server.csr
+ec62738d5a1e80f9.crt
+gd_bundle-g2-g1.crt
