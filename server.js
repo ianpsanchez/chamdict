@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, "app")));
 // Database configuration
 // Save the URL of our database as well as the name of our collection
 // var databaseUrl = "ChamorroDB";
-var databaseUrl = "mongodb://heroku_kxtrq3f6:5aq3m3e6mdo42iqdlu22il3mao@ds117431.mlab.com:17431/heroku_kxtrq3f6";
+var databaseUrl = "mongodb://heroku_kxtrq3f6:5aq3m3e6mdo42iqdlu22il3mao@ds117431.mlab.com:17/heroku_kxtrq3f612345";
 var collections = ["tiningo"];
 
 // Use mongojs to hook the database to the db variable
